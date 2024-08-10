@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import studentService from '../services/studentService';
 
 function StudentList() {
   const [students, setStudents] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     studentService.getAllStudents().then(response => {
       setStudents(response.data);
     });
   }, []);
+
+  const handleUpdateClick = (id) => {
+    navigate(`/update-student/${id}`);
+  };
 
   return (
     <div>
@@ -20,6 +26,7 @@ function StudentList() {
             <th>Name</th>
             <th>Email</th>
             <th>Course</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -29,6 +36,9 @@ function StudentList() {
               <td>{student.name}</td>
               <td>{student.email}</td>
               <td>{student.course}</td>
+              <td>
+                <button onClick={() => handleUpdateClick(student.id)}>Update</button>
+              </td>
             </tr>
           ))}
         </tbody>
