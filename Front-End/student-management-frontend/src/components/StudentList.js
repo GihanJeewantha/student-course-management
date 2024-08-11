@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import studentService from '../services/studentService';
+import './StudentList.css'; // Import the CSS file
 
 function StudentList() {
   const [students, setStudents] = useState([]);
@@ -16,10 +17,21 @@ function StudentList() {
     navigate(`/update-student/${id}`);
   };
 
+  const handleDeleteClick = (id) => {
+    if (window.confirm("Are you sure you want to delete this student?")) {
+      studentService.deleteStudent(id).then(() => {
+        // Refresh the list after deletion
+        setStudents(students.filter(student => student.id !== id));
+      }).catch(error => {
+        console.error("There was an error deleting the student!", error);
+      });
+    }
+  };
+
   return (
-    <div>
+    <div className="container">
       <h2>Student List</h2>
-      <table border="1">
+      <table className="table">
         <thead>
           <tr>
             <th>ID</th>
@@ -37,7 +49,8 @@ function StudentList() {
               <td>{student.email}</td>
               <td>{student.course}</td>
               <td>
-                <button onClick={() => handleUpdateClick(student.id)}>Update</button>
+                <button className="button update-button" onClick={() => handleUpdateClick(student.id)}>Update</button>
+                <button className="button delete-button" onClick={() => handleDeleteClick(student.id)}>Delete</button>
               </td>
             </tr>
           ))}
