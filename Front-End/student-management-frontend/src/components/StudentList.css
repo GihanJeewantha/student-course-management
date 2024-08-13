@@ -1,0 +1,96 @@
+/* src/components/StudentList.css */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .table th, .table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .table th {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #ffffff;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .table td {
+    font-size: 16px;
+  }
+  
+  .button {
+    border: none;
+    padding: 10px 20px;
+    color: #ffffff;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+  }
+  
+  .update-button {
+    background-color: #28a745; /* Bootstrap success color */
+  }
+  
+  .delete-button {
+    background-color: #dc3545; /* Bootstrap danger color */
+  }
+  
+  .update-button:hover {
+    background-color: #218838; /* Darker green */
+    transform: scale(1.05);
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333; /* Darker red */
+    transform: scale(1.05);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333333;
+  }
+  
+
+  .add-button {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin-left: 0; /* Aligns the button to the left */
+  }
+  
+  .add-button:hover {
+    background-color: #0056b3; /* Darker blue */
+    transform: scale(1.05);
+  }
+  
+  
